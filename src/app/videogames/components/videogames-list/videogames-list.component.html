@@ -1,0 +1,40 @@
+
+
+<section class="container">
+  <h1 class="title">Videogame list</h1>
+
+  <app-videogames-list-filters (searched)="getVideogames($event)"></app-videogames-list-filters>
+
+  <ul class="list">
+    <li class="list-item" *ngFor="let game of videogames">
+      <strong class="title-list">
+        <strong [style.font-size.px]="12" [style.color]="'#dc2062'">Title</strong>
+        {{game.title}}
+      </strong>
+
+      <strong  class="title-list">
+        <strong *ngIf="game.completed" [style.color]="'#dc2062'">How old is the game</strong>
+        {{howOldIsTheGame(game)}}
+      </strong>
+
+      <strong class="title-list">
+        <strong [style.font-size.px]="12" [style.color]="'#dc2062'">Console</strong>
+        {{game.console}}
+      </strong>
+
+      <strong class="title-list">
+        <strong [style.font-size.px]="12" [style.color]="'#dc2062'">Completed</strong>
+        {{game.completed ? 'Yes' : 'No'}}
+      </strong>
+
+      <strong class="title-list" [style.flex]="2">
+        <strong *ngIf="game.personalNotes" [style.font-size.px]="12" [style.color]="'#dc2062'">Personal Notes</strong>
+        {{game.personalNotes}}
+      </strong>
+    </li>
+  </ul>
+</section>
+
+<button (click)="openDialogAddNewVideogame()" class="action-new-video-game" mat-fab color="primary" aria-label="Add new videogame">
+  <mat-icon>add</mat-icon>
+</button>

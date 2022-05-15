@@ -1,0 +1,45 @@
+<section class="container-filters">
+  <div class="card-filter">
+    <mat-form-field appearance="outline">
+      <mat-label>Console</mat-label>
+      <mat-select [(ngModel)]="filters.console" name="console">
+        <mat-option *ngFor="let console of consoleList" [value]="console">
+          {{console}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Year</mat-label>
+      <input matInput placeholder="2001" [(ngModel)]="filters.year" mask="0000">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Completation</mat-label>
+      <mat-select [(ngModel)]="filters.completation" name="completation">
+        <mat-option *ngFor="let item of completation" [value]="item.id">
+          {{item.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div class="card-filter">
+    <mat-form-field appearance="outline">
+      <mat-label>Game title</mat-label>
+      <input matInput placeholder="Metal gear" [(ngModel)]="filters.title">
+    </mat-form-field>
+
+    <mat-form-field class="mt-25 example-full-width" appearance="outline">
+      <mat-label>Personal Notes</mat-label>
+      <input  [(ngModel)]="filters.personalNotes" matInput placeholder="Ex. It makes me feel..."/>
+    </mat-form-field>
+
+    <div class="action">
+      <button (click)="search()" mat-raised-button color="primary">
+        <mat-icon>search</mat-icon>
+        Search
+      </button>
+    </div>
+  </div>
+</section>

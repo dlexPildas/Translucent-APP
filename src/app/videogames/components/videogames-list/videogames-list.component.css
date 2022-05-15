@@ -1,0 +1,44 @@
+.container {
+  max-width: 75%;
+  margin: 10px auto;
+  padding: 10px;
+}
+
+.title {
+  letter-spacing: 1.2px;
+}
+
+.list {
+  list-style: none;
+  margin: 25px 0 0 0;
+  padding: 0;
+}
+
+.list-item {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  background: #eee;
+  margin-bottom: 10px;
+  align-items: center;
+}
+
+.list-item:hover {
+  transform: translateY(-3px);
+}
+
+.list-item span, strong {
+  flex: 1;
+}
+
+.title-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.action-new-video-game {
+  position: fixed;
+  bottom: 3rem;
+  right: 3rem;
+}

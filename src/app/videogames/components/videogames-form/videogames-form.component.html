@@ -1,0 +1,56 @@
+<header>
+  <h1 mat-dialog-title>
+    <mat-icon>games</mat-icon>
+    Add a new videgame</h1>
+</header>
+
+<form class="body-form" [formGroup]="videogameForm" mat-dialog-content>
+  <div class="block">
+    <mat-form-field [style.flex]="2" [style.min-width.px]="300" appearance="outline">
+      <mat-label>Game title</mat-label>
+      <input matInput placeholder="Metal gear" formControlName="title">
+    </mat-form-field>
+
+    <mat-form-field [style.flex]="1" appearance="outline">
+      <mat-label>Year</mat-label>
+      <input matInput placeholder="2001" formControlName="year" [mask]="'0000'">
+    </mat-form-field>
+  </div>
+
+  <div class="completed mt-25">
+    <mat-checkbox [style.margin-right.px]="25" formControlName="completed">Completed</mat-checkbox>
+
+    <mat-form-field *ngIf="videogameForm.get('completed')?.value" appearance="outline">
+      <mat-label>Date of completion</mat-label>
+      <input formControlName="completionDate" matInput [matDatepicker]="picker">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field [style.flex]="1" appearance="outline">
+      <mat-label>Console</mat-label>
+      <mat-select formControlName="console" name="console">
+        <mat-option *ngFor="let console of consoleList" [value]="console">
+          {{console}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <mat-form-field class="mt-25 example-full-width" appearance="outline">
+    <mat-label>Personal Notes</mat-label>
+    <textarea formControlName="personalNotes" matInput placeholder="Ex. It makes me feel..."></textarea>
+  </mat-form-field>
+</form>
+
+<footer mat-dialog-actions>
+  <button mat-raised-button mat-dialog-close>
+    <mat-icon>close</mat-icon>
+    Close
+  </button>
+
+  <button (click)="save()" [disabled]="!videogameForm.valid" mat-raised-button color="primary">
+    <mat-icon>save</mat-icon>
+    Save
+  </button>
+</footer>

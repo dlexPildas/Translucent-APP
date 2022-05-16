@@ -1,5 +1,5 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { VideogamesModule } from '../../videogames.module';
 
@@ -11,9 +11,9 @@ describe('VideogamesListFiltersComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-     imports: [ VideogamesModule, BrowserAnimationsModule, HttpClientTestingModule ]
+      imports: [VideogamesModule, BrowserAnimationsModule, HttpClientTestingModule]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
@@ -35,4 +35,13 @@ describe('VideogamesListFiltersComponent', () => {
     component.search();
     expect(component.searched.emit).toHaveBeenCalled();
   });
+
+  it('should display the name typed in autocomplete', fakeAsync(() => {
+    component.title.setValue('Mario');
+
+    fixture.detectChanges();
+    tick(600);
+    const element: HTMLInputElement = fixture.nativeElement.querySelector('.game-title');
+    expect(element.value).toBe('Mario');
+  }));
 });

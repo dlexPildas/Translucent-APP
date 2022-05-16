@@ -1,4 +1,5 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { VideogamesService } from './../../services/videogames.service';
+import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Validators } from '@angular/forms';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
@@ -143,5 +144,12 @@ describe('VideogamesFormComponent', () => {
     });
 
     expect(component.canSave()).toBeTrue();
+  });
+
+  it('button to save should be disable when form is not valid', () => {
+    fixture.detectChanges();
+    const element: HTMLButtonElement = fixture.nativeElement.querySelector('.save-button');
+
+    expect(element.disabled).toBeTrue()
   });
 });

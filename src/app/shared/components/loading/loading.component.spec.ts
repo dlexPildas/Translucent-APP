@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { StoreModule } from '@ngrx/store';
 import { appReducer } from 'src/app/store/app.reducers';
+import { SharedModule } from '../../shared.module';
 
 import { LoadingComponent } from './loading.component';
 
@@ -10,8 +11,8 @@ describe('LoadingComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LoadingComponent ],
       imports:[
+        SharedModule,
         StoreModule.forRoot({ app: appReducer }),
       ]
     })

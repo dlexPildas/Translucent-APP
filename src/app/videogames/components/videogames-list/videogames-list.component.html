@@ -12,15 +12,17 @@
         {{game.title}}
       </strong>
 
-      <strong [style.text-align]="'center'" class="title-list">
-        <strong [style.font-size.px]="12" [style.color]="'#dc2062'">Year</strong>
-        {{game.year}}
-      </strong>
-
       <strong  class="title-list">
         <strong *ngIf="game.completed" [style.font-size.px]="12" [style.color]="'#dc2062'">How old is the game</strong>
         {{howOldIsTheGame(game)}}
       </strong>
+
+      <strong class="title-list">
+        <strong [style.font-size.px]="12" [style.color]="'#dc2062'">Year</strong>
+        {{game.year}}
+      </strong>
+
+
 
       <strong class="title-list">
         <strong [style.font-size.px]="12" [style.color]="'#dc2062'">Console</strong>
@@ -32,7 +34,7 @@
         {{game.completed ? 'Yes' : 'No'}}
       </strong>
 
-      <strong class="title-list" [style.flex]="2">
+      <strong class="title-list" [style.margin-top.px]="10" [style.flex]="2">
         <strong *ngIf="game.personalNotes" [style.font-size.px]="12" [style.color]="'#dc2062'">Personal Notes</strong>
         {{game.personalNotes}}
       </strong>

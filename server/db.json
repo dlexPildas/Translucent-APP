@@ -1,0 +1,58 @@
+{
+  "videogames": [
+    {
+      "id": 1,
+      "title": "Metal Gear Solid 2",
+      "console": "PS4",
+      "year": 2001,
+      "completed": true,
+      "completionDate": "07/08/2017",
+      "personalNotes": "I really liked this game. Kojima really nailed here."
+    },
+    {
+      "title": "Mario",
+      "console": "PS4",
+      "year": "2011",
+      "completed": false,
+      "completionDate": null,
+      "personalNotes": "",
+      "id": 2
+    },
+    {
+      "title": "Super Bomberman",
+      "console": "PS4",
+      "year": "1990",
+      "completed": true,
+      "completionDate": "2016-06-15T03:00:00.000Z",
+      "personalNotes": "The great game",
+      "id": 3
+    },
+    {
+      "title": "Call of Duty",
+      "console": "XBOX ONE",
+      "year": "2000",
+      "completed": true,
+      "completionDate": "2011-06-29T03:00:00.000Z",
+      "personalNotes": "I played that game with my brother",
+      "id": 4
+    },
+    {
+      "title": "Residente Evil 4",
+      "console": "NINTENDO SWITCH",
+      "year": "2003",
+      "completed": true,
+      "completionDate": "2015-03-10T03:00:00.000Z",
+      "personalNotes": "A game to fight with mosters",
+      "id": 5
+    },
+    {
+      "title": "Test",
+      "console": "PS4",
+      "year": "2000",
+      "completed": false,
+      "completionDate": null,
+      "personalNotes": "Test",
+      "id": 6
+    }
+  ]
+}

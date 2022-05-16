@@ -1,5 +1,5 @@
 import { VideogamesModule } from './../../videogames.module';
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
 
 import { VideogamesListComponent } from './videogames-list.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';

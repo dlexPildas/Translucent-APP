@@ -1,0 +1,48 @@
+.container-loading {
+  position: absolute;
+  top: 0;
+  background: #00000045;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.container-loading strong {
+  font-size: 32px;
+  color: #fff;
+  letter-spacing: 5px;
+  animation: animationLabel 2s linear infinite;
+}
+
+svg {
+  animation: rotate 1.5s linear infinite, animationLabel 2s infinite;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes animationLabel {
+  0% {
+    color: #fff;
+  }
+
+  50% {
+    color: rgb(197, 195, 195);
+  }
+
+  100% {
+    color: #fff;
+  }
+}

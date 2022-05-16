@@ -25,14 +25,25 @@
   </div>
 
   <div class="card-filter">
-    <mat-form-field appearance="outline">
+    <mat-form-field class="example-full-width" appearance="outline">
       <mat-label>Game title</mat-label>
-      <input matInput placeholder="Metal gear" [(ngModel)]="filters.title">
+      <input
+        type="text"
+        placeholder="Metal geare"
+        aria-label="Game title"
+        matInput
+        [formControl]="title"
+        [matAutocomplete]="auto">
+      <mat-autocomplete (optionSelected)="filters.title = $event.option.value" autoActiveFirstOption #auto="matAutocomplete">
+        <mat-option *ngFor="let game of titleGames | async" [value]="game">
+          {{game}}
+        </mat-option>
+      </mat-autocomplete>
     </mat-form-field>
 
     <mat-form-field class="mt-25 example-full-width" appearance="outline">
       <mat-label>Personal Notes</mat-label>
-      <input  [(ngModel)]="filters.personalNotes" matInput placeholder="Ex. It makes me feel..."/>
+      <input [(ngModel)]="filters.personalNotes" matInput placeholder="Ex. It makes me feel..."/>
     </mat-form-field>
 
     <div class="action">

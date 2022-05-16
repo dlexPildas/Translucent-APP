@@ -2,7 +2,7 @@ export class VideogameFiltersModel {
   title: string;
   console: string;
   completation: number;
-  year!: string;
+  year!: number;
   personalNotes!: string;
 
   constructor() {

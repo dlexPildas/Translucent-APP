@@ -6,6 +6,8 @@ import { MatDialogRef } from '@angular/material/dialog';
 
 import { VideogamesFormComponent } from './videogames-form.component';
 import { VideogamesModule } from '../../videogames.module';
+import { appReducer } from 'src/app/store/app.reducers';
+import { StoreModule } from '@ngrx/store';
 
 describe('VideogamesFormComponent', () => {
   let component: VideogamesFormComponent;
@@ -16,7 +18,8 @@ describe('VideogamesFormComponent', () => {
       imports: [
         VideogamesModule,
         BrowserAnimationsModule,
-        HttpClientTestingModule
+        HttpClientTestingModule,
+        StoreModule.forRoot({ app: appReducer }),
       ],
       providers: [
         {

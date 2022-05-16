@@ -6,14 +6,19 @@
   <app-videogames-list-filters (searched)="getVideogames($event)"></app-videogames-list-filters>
 
   <ul class="list">
-    <li class="list-item" *ngFor="let game of videogames">
+    <li class="list-item" *ngFor="let game of videogames$ | async">
       <strong class="title-list">
         <strong [style.font-size.px]="12" [style.color]="'#dc2062'">Title</strong>
         {{game.title}}
       </strong>
 
+      <strong [style.text-align]="'center'" class="title-list">
+        <strong [style.font-size.px]="12" [style.color]="'#dc2062'">Year</strong>
+        {{game.year}}
+      </strong>
+
       <strong  class="title-list">
-        <strong *ngIf="game.completed" [style.color]="'#dc2062'">How old is the game</strong>
+        <strong *ngIf="game.completed" [style.font-size.px]="12" [style.color]="'#dc2062'">How old is the game</strong>
         {{howOldIsTheGame(game)}}
       </strong>
 

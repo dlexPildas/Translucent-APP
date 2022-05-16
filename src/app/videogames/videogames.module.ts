@@ -14,11 +14,12 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 
+import { NgxMaskModule } from 'ngx-mask';
+
 import { VideogamesRoutingModule } from './videogames-routing.module';
 import { VideogamesListComponent } from './components/videogames-list/videogames-list.component';
 import { VideogamesFormComponent } from './components/videogames-form/videogames-form.component';
 import { VideogamesListFiltersComponent } from './components/videogames-list-filters/videogames-list-filters.component';
-import { NgxMaskModule } from 'ngx-mask';
 
 
 @NgModule({

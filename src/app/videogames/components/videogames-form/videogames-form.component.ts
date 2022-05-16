@@ -1,8 +1,11 @@
+import { finalize } from 'rxjs';
 import { VideogamesService } from './../../services/videogames.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialogRef } from '@angular/material/dialog';
+import { Store } from '@ngrx/store';
+import { hideLoadingComponentForm, showLoadingComponentForm } from 'src/app/store/app.actions';
 
 @Component({
   selector: 'app-videogames-form',
@@ -17,7 +20,8 @@ export class VideogamesFormComponent implements OnInit {
     private formBuilder: FormBuilder,
     private snackBar: MatSnackBar,
     private dialogRef: MatDialogRef<VideogamesFormComponent>,
-    private videogameService: VideogamesService
+    private videogameService: VideogamesService,
+    private store: Store
   ) { }
 
   ngOnInit(): void {
@@ -50,7 +54,11 @@ export class VideogamesFormComponent implements OnInit {
   save(): void {
     if (!this.canSave()) return;
 
+    this.store.dispatch(showLoadingComponentForm());
     this.videogameService.save(this.videogameForm.value)
+      .pipe(
+        finalize(() => this.store.dispatch(hideLoadingComponentForm()))
+      )
       .subscribe({
         next: () => this.snackBar.open('Videogame was save with success', '😊', { horizontalPosition: 'end', verticalPosition: 'bottom', duration: 3000 }),
         error: () => this.snackBar.open('There is an error to save the videogame', '😊', { horizontalPosition: 'end', verticalPosition: 'bottom', duration: 3000 }),

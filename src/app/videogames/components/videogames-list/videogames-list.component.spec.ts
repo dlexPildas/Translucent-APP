@@ -5,6 +5,8 @@ import { VideogamesListComponent } from './videogames-list.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { VideogameModel } from '../../models/videogame.model';
+import { appReducer } from 'src/app/store/app.reducers';
+import { StoreModule } from '@ngrx/store';
 
 describe('VideogamesListComponent', () => {
   let component: VideogamesListComponent;
@@ -12,7 +14,7 @@ describe('VideogamesListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [VideogamesModule,  HttpClientTestingModule, BrowserAnimationsModule]
+      imports: [VideogamesModule,  HttpClientTestingModule, BrowserAnimationsModule, StoreModule.forRoot({ app: appReducer }),]
     })
     .compileComponents();
   });

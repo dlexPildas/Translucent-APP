@@ -4,6 +4,6 @@ export interface VideogameModel {
   console: string;
   year: number;
   completed: boolean;
-  completionDate: Date;
+  completionDate?: Date;
   personalNotes: string;
 }

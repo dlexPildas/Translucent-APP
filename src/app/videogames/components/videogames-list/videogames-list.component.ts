@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Store } from '@ngrx/store';
+import { finalize, Observable } from 'rxjs';
 
 import { VideogameModel } from './../../models/videogame.model';
 import { VideogamesService } from '../../services/videogames.service';
 import { VideogamesFormComponent } from '../videogames-form/videogames-form.component';
 import { VideogameFiltersModel } from '../../models/videogame-filters.model';
+import { hideLoadingComponent, showLoadingComponent } from 'src/app/store/app.actions';
 
 @Component({
   selector: 'app-videogames-list',
@@ -12,12 +15,13 @@ import { VideogameFiltersModel } from '../../models/videogame-filters.model';
   styleUrls: ['./videogames-list.component.css']
 })
 export class VideogamesListComponent implements OnInit {
-  videogames!: VideogameModel[];
+  videogames$!: Observable<VideogameModel[]>;
 
   constructor(
     public dialog: MatDialog,
-    private videogamesService: VideogamesService
-    ) {
+    private videogamesService: VideogamesService,
+    private store: Store
+  ) {
   }
 
   ngOnInit(): void {
@@ -25,8 +29,12 @@ export class VideogamesListComponent implements OnInit {
   }
 
   getVideogames(filters?: VideogameFiltersModel): void {
-    this.videogamesService.getVideogames(filters)
-      .subscribe(videogames => this.videogames = videogames)
+    this.store.dispatch(showLoadingComponent());
+    this.videogames$ = this.videogamesService
+      .getVideogames(filters)
+      .pipe(
+        finalize(() => this.store.dispatch(hideLoadingComponent()))
+      );
   }
 
   openDialogAddNewVideogame(): void {
@@ -38,9 +46,9 @@ export class VideogamesListComponent implements OnInit {
   }
 
   howOldIsTheGame(game: VideogameModel): string {
-    if (!game.completed) return '';
+    if (!game.completed || !game.completionDate) return '';
 
-    const yearOfCompletation = (new Date(game.completionDate)).getFullYear();
+    const yearOfCompletation = (new Date(game.completionDate || '')).getFullYear();
 
     return `${(+yearOfCompletation) - (+game.year)} years old`;
   }

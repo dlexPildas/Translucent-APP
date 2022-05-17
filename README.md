@@ -1,27 +1,77 @@
 # AngularFrontendTranslucent
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.4.
+App to list and add new videogames. This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.4.
+ 
+Table of contents
+=================
 
-## Development server
+<!--ts-->
+   * [Project Status](#project-status)
+   * [Features](#features)
+   * [Techs](#techs)
+   * [How to run](#how-to-run)  
+<!--te-->
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+project status
+==============
 
-## Build
+<h4> 
+	🚧 Finished  🚧
+</h4>
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+features
+========
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- [X] List all videogames
+- [X] Add a new videogame
+- [X] Unit tests
+- [ ] E2E tests
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+techs
+=====
 
-## Further help
+Tools that was used in construction of the project
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- [Angular](https://angular.io/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [AngularMaterial](https://material.angular.io/)
+- [RXJS](https://rxjs.dev/guide/overview)
+- [NGRX](https://ngrx.io/)
+- [NGXMask](https://jsdaddy.github.io/ngx-mask-page/main)
+
+
+how to run
+==========
+
+Before to use that app, do you need to install the tools:
+
+- [Node.js](https://nodejs.org/en/)
+- [Angular](https://angular.io/guide/setup-local)
+
+
+After install all tools, you need to clone that repository and open it in the text editor.
+
+To execute the app, you can run that command in terminal:
+
+  #### Api
+  Run `npm run api` for start the 'backend'
+
+  #### Frontend
+  Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
+  #### Running unit tests
+  - Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io) 
+  - Run `npm run code-coverage` to have a report of project
+
+
+
+
+## Autor
+
+<img style="border-radius: 10px;" src="https://avatars.githubusercontent.com/u/34068258?v=4" width="100px;" alt=""/>
+
+Project have been done by Daniel Oliveira
